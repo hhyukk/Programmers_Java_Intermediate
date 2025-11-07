@@ -1,4 +1,4 @@
-package lang_패키지_오토박싱;
+package lang_패키지;
 
 public class WrapperExam {
     public static void main(String[] args) {
