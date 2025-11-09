@@ -1,14 +1,12 @@
 package IO;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class ByteExam1 {
+public class ByteExam2 {
     public static void main(String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
-
         FileInputStream fis = null;
         FileOutputStream fos = null;
 
@@ -16,9 +14,10 @@ public class ByteExam1 {
             fis = new FileInputStream("src/날짜와_시간/TimeExam.java");
             fos = new FileOutputStream("byte.txt");
 
-            int readData = -1;
-            while ((readData = fis.read()) != -1) {
-                fos.write(readData);
+            int readCount = -1;
+            byte[] buffer = new byte[512];
+            while ((readCount = fis.read(buffer)) != -1) {
+                fos.write(buffer, 0, readCount);
 
             }
 
@@ -35,5 +34,4 @@ public class ByteExam1 {
         long endTime = System.currentTimeMillis();
         System.out.println(endTime - startTime);
     }
-
 }
